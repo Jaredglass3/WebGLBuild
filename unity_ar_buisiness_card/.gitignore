@@ -70,3 +70,12 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+unity_ar_buisiness_card/Assets/SamplesResources/Recordings/barcode.mp4
+unity_ar_buisiness_card/Assets/SamplesResources/Recordings/image_target.mp4
+unity_ar_buisiness_card/Assets/SamplesResources/AugmentationAssets/Models/Astronaut.FBX
+unity_ar_buisiness_card/Assets/SamplesResources/Recordings/advanced_model_target.mp4
+unity_ar_buisiness_card/Packages/com.ptc.vuforia.engine-10.19.3.tgz
+*.mp4
+*.FBX
+*.tgz
