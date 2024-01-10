@@ -37,15 +37,15 @@ MonoBehaviour:
     videoBackgroundShader: {fileID: 4800000, guid: 144dfca22ac584ade9e538e24a5ddded,
       type: 3}
     unlitShader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-    videoBackgroundEnabled: 0
+    videoBackgroundEnabled: 1
   deviceTracker:
     autoStartTracker: 1
     arcoreRequirement: 1
     autoImportArcore: 1
-    thirdPartyARCoreClientDetected: 0
+    thirdPartyARCoreClientDetected: 1
   playmode:
     mRecordingPath: Assets/SamplesResources/Recordings/area_target.mp4
-    playModeType: 0
+    playModeType: 1
   webcam:
     renderTextureLayer: 30
   packageInformation:
