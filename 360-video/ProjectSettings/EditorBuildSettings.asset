@@ -11,6 +11,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Cantina.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Cube.unity
+    guid: b64cad87fcf58234aa060162d2ead1be
+  - enabled: 1
+    path: Assets/Scenes/Living Room.unity
+    guid: f4155d250200be04fb72b641344343b5
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: aab5dcfc277c25347baf859b1a32d7ca, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 30ab929ced7b55d4eb1b1ba8ee0016b4, type: 2}
