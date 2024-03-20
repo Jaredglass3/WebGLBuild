@@ -6,6 +6,8 @@ public class ButtonManager : MonoBehaviour
     public GameObject startCanvas; // Reference to the canvas containing the start button
     public GameObject gameCanvas; // Reference to the canvas containing the game UI
 
+    public TargetController targetController; // Reference to the TargetController script
+
     // Method to handle the Start button click
     public void StartGame()
     {
@@ -15,7 +17,15 @@ public class ButtonManager : MonoBehaviour
         // Enable the game canvas
         gameCanvas.SetActive(true);
 
-        SceneManager.LoadScene("ARSlingshotGame");
+        // Call StartGame method from TargetController
+        if(targetController != null)
+        {
+            targetController.StartGame();
+        }
+        else
+        {
+            Debug.LogWarning("TargetController reference not set in ButtonManager.");
+        }
     }
 
     // Method to handle the Quit button click

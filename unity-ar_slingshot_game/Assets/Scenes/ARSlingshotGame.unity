@@ -625,7 +625,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2512387470528047719, guid: 48cb3fb68c91eb94999fd99957eb0cae,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1796759439}
   m_SourcePrefab: {fileID: 100100000, guid: 48cb3fb68c91eb94999fd99957eb0cae, type: 3}
 --- !u!1 &702413256
 GameObject:
@@ -945,6 +949,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startCanvas: {fileID: 0}
   gameCanvas: {fileID: 0}
+  targetController: {fileID: 0}
 --- !u!1 &943448130
 GameObject:
   m_ObjectHideFlags: 0
@@ -954,9 +959,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 943448132}
-  - component: {fileID: 943448134}
+  - component: {fileID: 943448133}
   m_Layer: 0
-  m_Name: PlaneManager
+  m_Name: TargetController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -977,7 +982,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &943448134
+--- !u!114 &943448133
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -986,10 +991,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 943448130}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03cfa397f1fa6954f9b7707e38125ec3, type: 3}
+  m_Script: {fileID: 11500000, guid: 8713e637ff394594ebce0d8fea21aa2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiCanvas: {fileID: 991842893}
+  targetprefab: {fileID: 417813940956870150, guid: 2e0b8f5c00dce73448dd207036d81a23,
+    type: 3}
+  numberOfTargets: 5
 --- !u!1 &991842890
 GameObject:
   m_ObjectHideFlags: 0
@@ -1109,6 +1116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startCanvas: {fileID: 991842890}
   gameCanvas: {fileID: 922344970}
+  targetController: {fileID: 0}
 --- !u!1 &1019350107
 GameObject:
   m_ObjectHideFlags: 0
@@ -1533,7 +1541,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -217, y: -197}
+  m_AnchoredPosition: {x: -217, y: -138}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1303956828
@@ -1725,6 +1733,25 @@ MonoBehaviour:
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
   m_CancelButton: Cancel
+--- !u!1 &1796759433 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2512387470528047719, guid: 48cb3fb68c91eb94999fd99957eb0cae,
+    type: 3}
+  m_PrefabInstance: {fileID: 331264285}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1796759439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796759433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03cfa397f1fa6954f9b7707e38125ec3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiCanvas: {fileID: 991842893}
 --- !u!1 &1815911123
 GameObject:
   m_ObjectHideFlags: 0
@@ -1870,9 +1897,44 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 427749664640500203, guid: 9fe8d3c2d2ebe754e9d07e7034cd7b55,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 427749664640500203, guid: 9fe8d3c2d2ebe754e9d07e7034cd7b55,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 427749664640500203, guid: 9fe8d3c2d2ebe754e9d07e7034cd7b55,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 991842895}
+    - target: {fileID: 427749664640500203, guid: 9fe8d3c2d2ebe754e9d07e7034cd7b55,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 943448133}
+    - target: {fileID: 427749664640500203, guid: 9fe8d3c2d2ebe754e9d07e7034cd7b55,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 427749664640500203, guid: 9fe8d3c2d2ebe754e9d07e7034cd7b55,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: StartGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 427749664640500203, guid: 9fe8d3c2d2ebe754e9d07e7034cd7b55,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: TargetController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 427749664640500203, guid: 9fe8d3c2d2ebe754e9d07e7034cd7b55,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3031188105510436536, guid: 9fe8d3c2d2ebe754e9d07e7034cd7b55,
         type: 3}
       propertyPath: m_Pivot.x
