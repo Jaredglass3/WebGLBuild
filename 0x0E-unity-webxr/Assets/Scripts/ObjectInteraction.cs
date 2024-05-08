@@ -14,6 +14,8 @@ public class MouseObjectInteraction : MonoBehaviour
         {
             // Cast a ray from the mouse position to detect objects
             RaycastHit hit;
+            Debug.Log("Camera: " + Camera.main.gameObject.name);
+            Debug.Log("Input Pos: " + Input.mousePosition);
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
             if (Physics.Raycast(ray, out hit))
@@ -30,38 +32,27 @@ public class MouseObjectInteraction : MonoBehaviour
         }
 
         // While grabbing, update the position of the object based on mouse movement
-        if (isGrabbing)
+        if (isGrabbing && currentObject != null) // Added null check here
         {
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10f));
             currentObject.transform.position = mousePos + offset;
         }
     }
 
-    void GrabObject(Vector3 hitPoint)
+    private void GrabObject(Vector3 hitPoint)
     {
         isGrabbing = true;
-        // Calculate the offset between object position and mouse position on grab
         offset = currentObject.transform.position - hitPoint;
+        currentObject.GetComponent<Rigidbody>().isKinematic = true;
     }
 
-    void ReleaseObject()
+    private void ReleaseObject()
     {
         isGrabbing = false;
-
-        // Calculate the direction to throw the object
-        Vector3 throwDirection = Camera.main.transform.forward;
-
-        // Add force to the object to project it forward
+        currentObject.GetComponent<Rigidbody>().isKinematic = false;
         Rigidbody rb = currentObject.GetComponent<Rigidbody>();
-        if (rb != null)
-        {
-            rb.AddForce(throwDirection * throwForce, ForceMode.Impulse);
-        }
-        else
-        {
-            Debug.LogWarning("The object does not have a Rigidbody component.");
-        }
-
+        Vector3 throwDirection = Camera.main.transform.forward;
+        rb.velocity = throwDirection * throwForce;
         currentObject = null; // Reset currentObject after releasing
     }
 }

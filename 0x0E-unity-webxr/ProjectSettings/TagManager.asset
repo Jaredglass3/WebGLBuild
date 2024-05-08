@@ -7,6 +7,8 @@ TagManager:
   - Interactable
   - pins
   - Alley
+  - Obstacle
+  - Animator
   layers:
   - Default
   - TransparentFX
