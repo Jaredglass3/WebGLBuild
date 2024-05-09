@@ -7,6 +7,8 @@ public class ObstacleSpawnSystem : MonoBehaviour
     public int maxObstacles = 10;
     public Transform[] spawnPoints; // Define spawn points within the alley
     public Quaternion fixedRotation = Quaternion.identity; // Set the fixed rotation for the obstacles
+    public float rotationSpeed = 50f; // Speed at which the obstacles rotate
+    public Vector3 rotationAxis = Vector3.up; // Axis around which the obstacles rotate
 
     private List<GameObject> obstacles = new List<GameObject>();
 
@@ -43,5 +45,14 @@ public class ObstacleSpawnSystem : MonoBehaviour
         obstacles.Add(obstacle);
 
         Debug.Log("Obstacle spawned at position: " + spawnPosition); // Log the spawn position
+    }
+
+    private void Update()
+    {
+        // Rotate each spawned obstacle around its local axis
+        foreach (GameObject obstacle in obstacles)
+        {
+            obstacle.transform.RotateAround(obstacle.transform.position, rotationAxis, rotationSpeed * Time.deltaTime);
+        }
     }
 }
