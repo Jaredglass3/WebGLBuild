@@ -9,13 +9,22 @@ public class CameraFollow : MonoBehaviour
 
     private bool isFollowing = false;
 
+    void Start(){
+
+
+    followCamera.gameObject.SetActive(false);
+    mainCamera.gameObject.SetActive(true);
+
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Interactable"))
         {
-            mainCamera.enabled = false;
-            followCamera.enabled = true;
+            mainCamera.gameObject.SetActive(false);
+            followCamera.gameObject.SetActive(true);
             isFollowing = true;
+
         }
     }
 
@@ -52,8 +61,9 @@ public class CameraFollow : MonoBehaviour
     // Method to stop following the object
     private void StopFollowing()
     {
-        mainCamera.enabled = true;
-        followCamera.enabled = false;
+        mainCamera.gameObject.SetActive(true);
+        followCamera.gameObject.SetActive(false);
+
         isFollowing = false;
     }
 }

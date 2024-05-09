@@ -9,6 +9,7 @@ TagManager:
   - Alley
   - Obstacle
   - Animator
+  - Follow Cam
   layers:
   - Default
   - TransparentFX
