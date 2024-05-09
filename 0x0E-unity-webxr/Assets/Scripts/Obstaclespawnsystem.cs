@@ -9,6 +9,7 @@ public class ObstacleSpawnSystem : MonoBehaviour
     public Quaternion fixedRotation = Quaternion.identity; // Set the fixed rotation for the obstacles
     public float rotationSpeed = 50f; // Speed at which the obstacles rotate
     public Vector3 rotationAxis = Vector3.up; // Axis around which the obstacles rotate
+    public Vector3 obstacleScale = new Vector3(0.5f, 0.5f, 0.5f); // Scale of the obstacles
 
     private List<GameObject> obstacles = new List<GameObject>();
 
@@ -42,6 +43,7 @@ public class ObstacleSpawnSystem : MonoBehaviour
         Quaternion spawnRotation = fixedRotation;
 
         GameObject obstacle = Instantiate(obstaclePrefab, spawnPosition, spawnRotation);
+        obstacle.transform.localScale = obstacleScale; // Set the scale of the obstacle
         obstacles.Add(obstacle);
 
         Debug.Log("Obstacle spawned at position: " + spawnPosition); // Log the spawn position

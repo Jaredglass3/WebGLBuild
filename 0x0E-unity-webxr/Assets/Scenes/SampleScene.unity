@@ -2804,6 +2804,9 @@ MonoBehaviour:
   - {fileID: 1380263471}
   - {fileID: 895220311}
   fixedRotation: {x: 0.7069834, y: 0, z: 0, w: 0.70723015}
+  rotationSpeed: 50
+  rotationAxis: {x: 0, y: 1, z: 0}
+  obstacleScale: {x: 20, y: 20, z: 5}
 --- !u!4 &713009732
 Transform:
   m_ObjectHideFlags: 0
